@@ -1,25 +1,40 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BS CUSTOMS — WE MAKE ORDINARY OBJECTS UNFORGETTABLE.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#F4EFE6" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('bs-theme')
+          var theme =
+            stored === 'dark' || stored === 'light'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+          var root = document.documentElement
+          root.setAttribute('data-theme', theme)
+          root.style.colorScheme = theme
+          var meta = document.querySelector('meta[name="theme-color"]')
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#121110' : '#F4EFE6')
+        } catch (e) {}
+      })()
+    </script>
+    <title>BS CUSTOMS — Custom T-Shirts & Personalization in Bidar</title>
+    <meta
+      name="description"
+      content="BS CUSTOMS in Bidar makes custom T-shirts, personalized gifts, engraving, and signage. Design a shirt or enquire on WhatsApp."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@700;800&display=swap"
       rel="stylesheet"
     />
-    <script>
-      try {
-        var t = localStorage.getItem('bs-theme')
-        document.documentElement.classList.remove('dark', 'light')
-        document.documentElement.classList.add(t === 'light' ? 'light' : 'dark')
-      } catch (e) {
-        document.documentElement.classList.add('dark')
-      }
-    </script>
   </head>
   <body>
     <div id="root"></div>
